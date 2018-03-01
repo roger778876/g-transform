@@ -8,4 +8,7 @@ color = [ 0, 255, 0 ]
 edges = []
 transform = new_matrix()
 
+test = make_rotZ(30)
+print_matrix(test)
+
 parse_file( 'script', edges, transform, screen, color )
