@@ -7,7 +7,7 @@ def make_translate(x, y, z):
   m[3][1] = y
   m[3][2] = z
   return m
-  
+
 
 def make_scale( x, y, z ):
   m = new_matrix(4, 4)
@@ -16,17 +16,29 @@ def make_scale( x, y, z ):
   m[2][2] = z
   m[3][3] = 1
   return m
-  
+
 
 def make_rotX( theta ):    
   m = new_matrix(4, 4)
   ident(m)
   rad = math.radians(theta)
-  
-    
+  m[1][1] = math.cos(rad)
+  m[1][2] = math.sin(rad)
+  m[2][1] = -1 * math.sin(rad)
+  m[2][2] = math.cos(rad)
+  return m
+
 
 def make_rotY( theta ):
-    pass
+  m = new_matrix(4, 4)
+  ident(m)
+  rad = math.radians(theta)
+  m[0][0] = math.cos(rad)
+  m[2][0] = math.sin(rad)
+  m[0][2] = -1 * math.sin(rad)
+  m[2][2] = math.cos(rad)
+  return m
+
 
 def make_rotZ( theta ):
   m = new_matrix(4, 4)
@@ -37,7 +49,7 @@ def make_rotZ( theta ):
   m[1][0] = -1 * math.sin(rad)
   m[1][1] = math.cos(rad)
   return m
-  
+
 
 def print_matrix( matrix ):
   output = ""
@@ -66,8 +78,8 @@ def scalar_mult( matrix, s ):
   for r in range( len( matrix[0] ) ):
     for c in range( len(matrix) ):
       matrix[c][r]*= s
-        
-            
+
+
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
   point = 0
