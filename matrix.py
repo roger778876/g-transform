@@ -18,7 +18,7 @@ def make_scale( x, y, z ):
   return m
 
 
-def make_rotX( theta ):    
+def make_rotX( theta ):
   m = new_matrix(4, 4)
   ident(m)
   rad = math.radians(theta)
