@@ -89,5 +89,8 @@ def parse_file( fname, points, transform, screen, color ):
       save_extension(screen, newfile[0])
       i += 2
 
+    elif (commands[i] == "quit"):
+      return
+
     else:
       raise Exception("invalid command in script")
